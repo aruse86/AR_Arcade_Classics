@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cb2d42b327dc42a4fa42329288663176
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 8410
+  packageName: Low Poly Space Invader Set
+  packageVersion: 1.2
+  assetPath: Assets/Bitgem/Space_Invaders_Mobile/Prefabs/UFO.prefab
+  uploadId: 491257
