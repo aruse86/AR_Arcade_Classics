@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 111814969939758450}
   - component: {fileID: -8536640179219136521}
   - component: {fileID: -1425543373675518392}
+  - component: {fileID: 6176714656250145926}
   m_Layer: 0
   m_Name: alien_02_mobile
   m_TagString: Invader
@@ -193,12 +194,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 404756f7a1e534db99ceb4aa4effdc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 2
+  horizontalSpeed: 2.25
   moveDuration: 5
-  verticalSpeed: 2
-  downDuration: 1
   speedIncrement: 0.7
   maxSpeed: 10
+  verticalSpeed: 2.25
+  downDuration: 0.5
 --- !u!65 &-1425543373675518392
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -220,6 +221,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6, y: 0.47, z: 0.6}
   m_Center: {x: 0, y: -0.025, z: 0}
+--- !u!114 &6176714656250145926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419660791268008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ca928c17400430d8a87f0fe7591a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointValue: 20
 --- !u!1 &1674615775512654
 GameObject:
   m_ObjectHideFlags: 0
