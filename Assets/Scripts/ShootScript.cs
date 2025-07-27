@@ -47,6 +47,13 @@ public class ShootScript : MonoBehaviour
                 // destroy that invader and show the explosion
                 Destroy(hit.transform.gameObject);
                 Instantiate(smoke, hit.point, Quaternion.LookRotation(hit.normal));
+
+                // update count of destroyed invaders
+                GameManager gm = FindAnyObjectByType<GameManager>();
+                if (gm != null)
+                {
+                    gm.InvaderDestroyed();
+                }
             }
         }
     }

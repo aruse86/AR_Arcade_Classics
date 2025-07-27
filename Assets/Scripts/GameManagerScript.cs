@@ -10,6 +10,20 @@ public class GameManager : MonoBehaviour
     // references another script that shows a Game Over Screen
     public GameOverUI gameOverUI;
 
+    private int invadersDestroyed = 0;
+    public int totalInvaders = 104; // Match this to SpawnScript
+
+    public void InvaderDestroyed()
+    {
+        invadersDestroyed++;
+
+        if (invadersDestroyed >= totalInvaders && !gameEnded)
+        {
+            Debug.Log("All 104 invaders destroyed. You win!");
+            GameOver(); // Or call a separate GameWon() method
+        }
+    }
+
     // this method is called when a space invader reaches the ground (see InvaderScript)
     public void GameOver()
     {
