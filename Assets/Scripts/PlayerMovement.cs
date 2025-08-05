@@ -1,31 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 10;
-    public float max_X = 10;
+    public float moveSpeed = 5f;
+    public float rotationSpeed = 200f;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
 
-    float horizontalMovement;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Update()
     {
-
+        HandleMovement();
+        HandleRotation();
+        HandleShooting();
     }
 
-    // Update is called once per frame
-    void Update()
+    // Handle movement forward/backward based on user input
+    void HandleMovement()
     {
-        horizontalMovement = Input.GetAxis("Horizontal");
-        // Sets horizontal boundaries for the paddle
-        if(
-          (horizontalMovement > 0 && transform.position.x < max_X) ||
-          (horizontalMovement < 0 && transform.position.x > -max_X)
-        ) {
-          // adjust paddle speed to change difficulty
-          transform.position += Vector3.right * horizontalMovement * speed * Time.deltaTime;
+        float moveInput = Input.GetAxis("Vertical"); // "W" or "S" (up or down arrow key)
+        transform.Translate(Vector3.up * moveInput * moveSpeed * Time.deltaTime);
+    }
+
+    // Handle rotation using horizontal input (A/D or left/right arrow keys)
+    void HandleRotation()
+    {
+        float rotateInput = Input.GetAxis("Horizontal"); // "A" or "D" (left or right arrow key)
+        transform.Rotate(Vector3.forward * -rotateInput * rotationSpeed * Time.deltaTime);
+    }
+
+    // Handle shooting (space bar or tap for mobile)
+    void HandleShooting()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) // or use a touch input for mobile
+        {
+            Shoot();
         }
+    }
+
+    // Instantiate bullets from the fire point
+    void Shoot()
+    {
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }
