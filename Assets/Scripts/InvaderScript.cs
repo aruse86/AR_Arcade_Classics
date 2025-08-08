@@ -7,15 +7,18 @@ using UnityEngine;
 public class InvaderScript : MonoBehaviour
 {
     [Header("Horizontal Movement")]  // horizontal movement header in each prefabs inspector window 
-    public float horizontalSpeed = 2f;  // Starting side-to-side speed
+    public float horizontalSpeed = .5f;  // Starting side-to-side speed
     public float moveDuration = 10f;  // Time to move horizontally
     public float speedIncrement = 0.2f;  // Increase in horizontal speed each cycle after going down
     public float maxSpeed = 10f;  // Max horizontal speed to set limit
 
     [Header("Vertical Movement")]  // vertical movement header in each prefabs inspector window
-    public float verticalSpeed = 1f;  // Downward speed
+    public float verticalSpeed = .1f;  // Downward speed
     public float downDuration = 3f;  // How long to move down
-    public float groundLevel = 0f;  // Y-position at which game ends and player loses if reached by any invader
+    public float groundLevel = -5f;  // Y-position at which game ends and player loses if reached by any invader
+
+    [Header("Audio")]
+    public AudioClip explosionSound; // 🔊 Assign this in the prefab inspector
 
     private bool movingRight = true;  // keeps track of which horizontal direction the invader moves
     private GameManager gameManager; // references another script to call GameOver()
@@ -67,5 +70,16 @@ public class InvaderScript : MonoBehaviour
             movingRight = !movingRight;
             horizontalSpeed = Mathf.Min(horizontalSpeed + speedIncrement, maxSpeed);
         }
+    }
+
+    // 🔥 Call this from ShootScript when the invader is hit
+    public void DestroyInvader()
+    {
+        if (explosionSound != null)
+        {
+            AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+        }
+
+        Destroy(gameObject);
     }
 }

@@ -1,19 +1,20 @@
+// needed namespaces for Unity to function
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Defines the MenuManager class which handles the start screen of the Space Invaders game
 public class MenuManager : MonoBehaviour
 {
-    // Called when "Start Game" button is clicked
+    // Starts Space Invaders when the Start Game button is pushed
     public void StartGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("SpaceInvadersScene"); // Replace with your actual game scene name
+        SceneManager.LoadScene("SpaceInvadersScene"); 
     }
 
-    // Called when "Quit to Home" button is clicked
+    // Go's to the home menu when the Quit button is pushed
     public void QuitToHome()
     {
-        // Load the home menu scene (not created yet)
         SceneManager.LoadScene("HomeMenu");
     }
 }

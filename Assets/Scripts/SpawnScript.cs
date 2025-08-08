@@ -15,7 +15,7 @@ public class SpawnScript : MonoBehaviour
     // calls SpawnInvaders() every 30 seconds
     void Start()
     {
-        InvokeRepeating("SpawnInvaders", 0f, 30f); // Spawns every 30 seconds
+        InvokeRepeating("SpawnInvaders", 0f, 60f); // Spawns every 60 seconds
     }
 
     // controls how invaders are spawned
@@ -47,7 +47,7 @@ public class SpawnScript : MonoBehaviour
         {
             int invaderType = pair.Key;
             int count = pair.Value;
-            float yPosition = 4 + invaderType * 2; // adjusts y spawn position for each invader type
+            float yPosition = 1 + invaderType * 2; // adjusts y spawn position for each invader type
 
             // spawn each invader of that type, randomizes (in x & z coord) each spawn posisition around the ARcamera
             for (int i = 0; i < count; i++)
@@ -66,8 +66,8 @@ public class SpawnScript : MonoBehaviour
                 do
                 {
                     spawnPos = spawnPoints[totalSpawned % spawnPoints.Length].position;
-                    spawnPos.x = GetRandomOutsideRange(-10f, -1f, 1f, 10f);
-                    spawnPos.z = GetRandomOutsideRange(-10f, -1f, 1f, 10f);
+                    spawnPos.x = GetRandomOutsideRange(-6f, -1f, 1f, 6f);
+                    spawnPos.z = GetRandomOutsideRange(-6f, -1f, 1f, 6f);
                     spawnPos.y = yPosition;
 
                     positionOk = true;

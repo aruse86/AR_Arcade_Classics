@@ -189,12 +189,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 404756f7a1e534db99ceb4aa4effdc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 3
-  moveDuration: 5
-  speedIncrement: 0.9
+  horizontalSpeed: 0.8
+  moveDuration: 6
+  speedIncrement: 0.5
   maxSpeed: 10
-  verticalSpeed: 3
+  verticalSpeed: 0.1
   downDuration: 0.5
+  groundLevel: -5
+  explosionSound: {fileID: 8300000, guid: f01c623f724825e44a923d1ae50256f2, type: 3}
 --- !u!65 &-8668882236068032284
 BoxCollider:
   m_ObjectHideFlags: 0

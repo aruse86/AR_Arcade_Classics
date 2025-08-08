@@ -6,11 +6,14 @@ using TMPro;
 // Defines the ShootScript class which handles shooting, scoring, keeping track of high scores, and showing explosions
 public class ShootScript : MonoBehaviour
 {
-    public GameObject arCamera;  // references the AR camera which is the origin and idrection of the shot
+    public GameObject arCamera;  // references the AR camera which is the origin and direction of the shot
     public GameObject smoke;  // references the explosion prefab once an invader is destroyed
 
     public TMP_Text scoreText;  // UI text element that shows score
     public TMP_Text highScoreText; // UI text element that shows high score
+
+    public AudioSource laserAudioSource; // plays when shooting
+
 
     private int score = 0;
     private int highScore = 0;
@@ -28,6 +31,12 @@ public class ShootScript : MonoBehaviour
     // controls the shooting aspect of the game
     public void Shoot()
     {
+        // 🔊 Play the laser shot sound immediately when shooting
+        if (laserAudioSource != null)
+        {
+            laserAudioSource.Play();
+        }
+
         RaycastHit hit;
         // shoots from the center of the AR camera
         if (Physics.Raycast(arCamera.transform.position, arCamera.transform.forward, out hit))
@@ -44,8 +53,14 @@ public class ShootScript : MonoBehaviour
                     UpdateScoreUI();
                 }
 
-                // destroy that invader and show the explosion
-                Destroy(hit.transform.gameObject);
+                // Destroy the invader (plays sound)
+                InvaderScript invader = hit.transform.GetComponent<InvaderScript>();
+                if (invader != null)
+                {
+                    invader.DestroyInvader();
+                }
+
+                // show the explosion
                 Instantiate(smoke, hit.point, Quaternion.LookRotation(hit.normal));
 
                 // update count of destroyed invaders
