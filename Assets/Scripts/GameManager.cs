@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class ASGameManager : MonoBehaviour
 {
     public Text scoreText;  // UI Text element to display the score
     private int score = 0;
