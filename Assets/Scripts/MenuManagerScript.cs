@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("SpaceInvadersScene"); 
+        SceneManager.LoadScene("SpaceInvadersGamePlayScene"); 
     }
 
     // Go's to the home menu when the Quit button is pushed

@@ -1,1 +1,0 @@
-This repository is created for our senior capstone project at Oregon State University. The main objective is to create a simple AR version of classic arcade games for use on an Android device. Team members include Aleksis Livshits, Joshua Flenniken, and Aaron Ruse. Aleksis is recreating Asteroids, Joshua is recreating Breakout, and Aaron is recreating Space Invaders. 
